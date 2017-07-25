@@ -48,7 +48,7 @@ function loadJSON (options) {
         obj,
         req;
 
-    //console.log(options.path);
+    console.log(options.path);
 
     req = https.get(options);
     req.on('response', function (res) {

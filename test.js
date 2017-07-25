@@ -1,19 +1,19 @@
-const smhi = require("./smhi.js");
+const
+    assert = require('assert'),
+    smhi = require("./smhi.js");
 
-smhi.GetPointForecast(55.5177586, 12.9883223)
-    .on("loaded", (data) => {
+smhi
+    .GetPointForecast(55.5177586, 12.9883223)
+    .on("loaded", (data) => {assert(data.approvedTime, "FAIL: GetPointForecast")});
 
-        var forecasts = data.timeSeries.map(function (ts) {
-            var res = {};
-            res["time"] = ts.validTime;
-            ts.parameters.forEach(function(p) {
-                res[p['name']] = p['values'][0];
-            });
-            return res;
-        });
+smhi
+    .ValidTime()
+    .on("loaded", (data) => {assert(data.validTime, "FAIL: ValidTime")});
 
-        console.log(forecasts[0]);
-    })
-    .on("error", (err) => {
-        console.log(err);
-    });
+smhi
+    .Polygon()
+    .on("loaded", (data) => {assert(data, "FAIL: Polygon")});
+
+smhi
+    .BasicInfo()
+    .on("loaded", (data) => {assert(data.parameter, "FAIL: BasicInfo")});
