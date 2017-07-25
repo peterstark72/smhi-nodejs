@@ -35,7 +35,7 @@ const
 
 /** 
  * Loads JSON data
- * @param {urlObj} urlObj - The URL object representing the JSON-formatted data
+ * @param {options} - The URL options, same as standard http.request()
  * @return {EventEmitter} 
  * @emits 'loaded' when data is loaded 
  * @emits 'error' when there is an error
@@ -48,7 +48,7 @@ function loadJSON (options) {
         obj,
         req;
 
-    console.log(options.path);
+    //console.log(options.path);
 
     req = https.get(options);
     req.on('response', function (res) {

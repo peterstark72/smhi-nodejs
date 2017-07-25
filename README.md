@@ -23,6 +23,12 @@ smhi.GetPointForecast(55.5177586, 12.9883223)
 
 All function names are the same as in the original documentation. For example, "GetPointForecast" is `smhi.GetPointForecast`. Response data is parsed with `JSON.parse()´, with no other modifications. The API is pretty well documented at [smhi.se](http://opendata.smhi.se/apidocs/metfcst/index.html).
 
+### Command line utility
+There is also a simple command line utility.
+```
+forecast <lat> <lon>
 
+forecast 55.5197809 12.9957763
+```
 
 
