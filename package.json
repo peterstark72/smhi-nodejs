@@ -1,0 +1,10 @@
+{
+    "name": "smhi",
+    "version": "1.0.0",
+    "main": "smhi.js",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/peterstark72/smhi-js.git"
+  }
+}
