@@ -1,6 +1,6 @@
 const smhi = require("./smhi.js");
 
-smhi.GetPointForecast(55.519, 12.995)
+smhi.GetPointForecast(55.5177586, 12.9883223)
     .on("loaded", (data) => {
 
         var forecasts = data.timeSeries.map(function (ts) {
