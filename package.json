@@ -9,5 +9,5 @@
     },
     "bin": {
         "forecast": "./bin/index.js"
-    },    
+    }
 }
