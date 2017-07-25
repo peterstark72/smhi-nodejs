@@ -1,6 +1,6 @@
 {
     "name": "smhi",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "main": "smhi.js",
     "license": "MIT",
     "repository": {
