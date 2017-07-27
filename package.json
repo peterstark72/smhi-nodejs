@@ -8,7 +8,7 @@
         "url": "https://github.com/peterstark72/smhi-nodejs.git"
     },
     "bin": {
-        "forecast": "./bin"
+        "forecast": "./bin/index.js"
     },
     "test": "test.js"
 }
