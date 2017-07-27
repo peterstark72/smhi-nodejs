@@ -7,10 +7,13 @@
  */
 const 
     assert = require('assert'),
-    smhi = require('smhi');
+    smhi = require('../lib').Forecasts;
 
 //Make sure we have proper arguments
-assert(process.argv.length == 4);
+if (process.argv.length != 4) {
+    console.error("<lat> <lon>");
+    return
+}
 
 //Convert lat, lon to numbers
 var lat = Number(process.argv[2]);
@@ -20,11 +23,14 @@ smhi.GetPointForecast(lat, lon).on("loaded", PrintForecast);
 
 function PrintForecast(data) {
 
-    var latest = data.timeSeries[0];
+    for (var i = 0, imax = data.timeSeries.length; i < imax; i++) {
+        
+        var d = new Date(data.timeSeries[i].validTime);
 
-    console.log(latest.validTime);
-    for (param in latest.parameters) {
-        console.log(latest.parameters[param]['name'], "=", latest.parameters[param]['values'][0]);
-    }
-
+        var parameters = data.timeSeries[i].parameters.reduce((obj, p) => {
+            obj[p['name']] = p['values'][0] + " " + p['unit'];
+            return obj;
+        }, {});
+        console.log(`${d.toDateString()} : ${d.toTimeString()} : ${parameters['t']},${parameters['ws']},${parameters['pmean']}`);
+    } 
 }
